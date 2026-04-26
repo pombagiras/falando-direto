@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/Al%C3%AA%20(3)%20(3)%20(1).png">
+    <title>ALEXIA MELUSINE | ALMAS DE POMBAGIRA</title>
+    
+    <style>
+        :root {
+            --pure-black: #000000;
+            --deep-purple: #1a0226;
+            --vibrant-purple: #9d31ff;
+            --spotify-green: #1DB954;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            margin: 0; padding: 20px; color: #fff;
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, var(--deep-purple) 0%, var(--pure-black) 95%);
+            background-attachment: fixed;
+            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Efeito de Chuva / Granulado no Fundo */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            opacity: 0.2; pointer-events: none; z-index: 0;
+        }
+
+        .content-wrapper { z-index: 1; width: 100%; max-width: 420px; text-align: center; }
+
+        .profile-pic {
+            width: 130px; height: 130px; border-radius: 50%;
+            border: 2px solid var(--vibrant-purple);
+            box-shadow: 0 0 30px rgba(157, 49, 255, 0.5);
+            margin: 20px 0 10px 0; object-fit: cover;
+        }
+
+        .intro-name { font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+        .intro-sub { font-size: 0.75rem; color: #888; margin-bottom: 30px; letter-spacing: 1px; }
+
+        /* Botões de Ação Direta */
+        .btn-direct {
+            display: block; width: 100%; padding: 18px 0; border-radius: 18px;
+            text-decoration: none; color: #fff; font-weight: bold; margin-bottom: 12px;
+            transition: 0.3s; text-transform: uppercase; font-size: 0.9rem;
+            border: none; cursor: pointer;
+        }
+
+        .btn-wa { background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2); }
+        .btn-tg { background: linear-gradient(135deg, #0088cc 0%, #004466 100%); box-shadow: 0 5px 15px rgba(0, 136, 204, 0.2); }
+        
+        /* Botão Podcast em Destaque */
+        .btn-podcast-main {
+            background: rgba(29, 185, 84, 0.1);
+            border: 1px solid var(--spotify-green);
+            color: var(--spotify-green);
+            box-shadow: 0 0 15px rgba(29, 185, 84, 0.2);
+        }
+
+        /* Accordion Style (Seções Retráteis) */
+        .accordion {
+            background: var(--glass-bg); border-radius: 18px; margin-bottom: 12px;
+            border: 1px solid var(--border); overflow: hidden; backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); text-align: left;
+        }
+
+        .accordion-header {
+            padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; font-weight: bold; font-size: 0.85rem; letter-spacing: 1px;
+            color: #efefef;
+        }
+
+        .accordion-header span { color: var(--vibrant-purple); font-size: 1.2rem; }
+
+        .accordion-content {
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-content a {
+            display: block; padding: 15px 20px; color: #aaa; text-decoration: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.03); font-size: 0.9rem;
+        }
+
+        /* Rodapé */
+        footer { margin-top: 40px; padding-bottom: 40px; }
+        .frase-visceral { font-size: 0.9rem; color: #ccc; font-style: italic; margin-bottom: 20px; line-height: 1.5; }
+        .copy { font-size: 0.65rem; color: #444; letter-spacing: 3px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <img src="https://raw.githubusercontent.com/pombagiras/melusine/refs/heads/main/Al%C3%AA%20(3)%20(3)%20(1).png" class="profile-pic">
+        <div class="intro-name">Alexia Melusine</div>
+        <div class="intro-sub">DIREÇÃO VISCERAL & CÓDIGOS</div>
+
+        <a href="#" id="wa-btn" class="btn-direct btn-wa">✦ WhatsApp Direto</a>
+        <a href="#" id="tg-btn" class="btn-direct btn-tg">✈️ Telegram Direto</a>
+
+        <a href="https://open.spotify.com/show/0oeCL1QScD3v7dHeUvJjgJ" class="btn-direct btn-podcast-main">
+            🎙️ PODCAST: FORÇA REVELADA
+        </a>
+
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                📂 PORTAIS & GITHUB <span>+</span>
+            </div>
+            <div class="accordion-content">
+                <a href="https://github.com/pombagiras">GitHub Principal</a>
+                <a href="https://github.com/Orgulho-Trans">Orgulho Trans</a>
+                <a href="https://github.com/alexialuzdeferro">Alexia Luz de Ferro</a>
+                <a href="https://bio.site/AlmasdePombagira">Bio Principal</a>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                🌐 REDES E CONTEÚDO <span>+</span>
+            </div>
+            <div class="accordion-content">
+                <a href="https://www.tiktok.com/@almasdepombagira">TikTok</a>
+                <a href="https://www.instagram.com/almasdepombagira/">Instagram</a>
+                <a href="https://www.threads.com/@almasdepombagira">Threads</a>
+                <a href="https://www.youtube.com/@almasdepombagira">YouTube</a>
+                <a href="https://substack.com/@alexiamelusine">Substack (Artigos)</a>
+                <a href="https://www.behance.net/alexiamelusine">Behance (Portfólio)</a>
+            </div>
+        </div>
+
+        <footer>
+            <p class="frase-visceral">
+                "Onde o asfalto queima e o silêncio grita, eu sou o caminho que você não vê, mas sente. Laroyê."
+            </p>
+            <p class="copy">ALEXIA MELUSINE © 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        const d_wa = "NTUxMTk4ODQzNDA3MA==";
+        const d_tg = "TWFyY2FkZVBvbWJhZ2lyYQ==";
+
+        function vibrate() { if (navigator.vibrate) navigator.vibrate(20); }
+
+        function toggleAccordion(el) {
+            vibrate();
+            const content = el.nextElementSibling;
+            const span = el.querySelector('span');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                span.innerText = "+";
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                span.innerText = "-";
+            }
+        }
+
+        document.getElementById('wa-btn').onclick = (e) => {
+            e.preventDefault(); vibrate();
+            window.open(`https://wa.me/${atob(d_wa)}`, '_blank');
+        };
+
+        document.getElementById('tg-btn').onclick = (e) => {
+            e.preventDefault(); vibrate();
+            window.open(`https://t.me/${atob(d_tg)}`, '_blank');
+        };
+    </script>
+</body>
+</html>
